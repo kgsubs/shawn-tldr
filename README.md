@@ -1,10 +1,10 @@
 # shawn-tldr
 
-A Claude Code skill that reads an article or video, verifies its claims against independent sources, and tells you whether it's worth your time. You get a one-word verdict (GOLD / OKAY / MEH / TRASH) plus a structured brief saved to your Downloads folder.
+A Claude Code skill that reads an article or video, verifies its claims against independent sources, and tells you whether it's worth your time. You get a one-word verdict (GOLD / OKAY / MEH / TRASH) plus a structured brief.
 
 ## What it does
 
-Point it at a URL, paste article text, give it a file path, or drop a YouTube link. It fetches the content, extracts every factual claim, and verifies each one against at least two independent authoritative sources. Then it writes a brief in this structure:
+Point it at a URL, paste article full text, give it a file path, or drop a YouTube link. It fetches the content, extracts every factual claim, and verifies each one against at least two independent authoritative sources. Then it writes a brief in this structure:
 
 - VERDICT -- GOLD, OKAY, MEH, or TRASH, with a one-sentence justification
 - BOTTOM LINE -- three to five sentences on the core argument and why it matters
@@ -15,7 +15,7 @@ Point it at a URL, paste article text, give it a file path, or drop a YouTube li
 - CROSS-INDUSTRY RELEVANCE -- where else this matters and why
 - SOURCES -- everything consulted, with URLs
 
-The full brief goes to `~/Downloads/shawn-tldr-[slug]-[YYYY-MM-DD].md`. The chat response gives you just the verdict, a plain-English summary, and a prompt to save it to your notes.
+The chat response gives you just the verdict, a plain-English summary, and a prompt to save it to your notes. The full brief goes to `~/Downloads/shawn-tldr-[slug]-[YYYY-MM-DD].md`. 
 
 For articles, it works through a four-tier fallback stack: plain WebFetch first, then Firecrawl (JS rendering + soft paywall bypass), then smry.ai (major publisher paywall bypass), then agent-browser as a last resort. For video, it tries yt-dlp first for a full transcript, then Firecrawl, then agent-browser.
 
